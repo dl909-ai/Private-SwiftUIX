@@ -1,314 +1,328 @@
-# <img align=top src="https://raw.githubusercontent.com/SwiftUIX/SwiftUIX/master/Assets/logo.png" width="36" height="36"> SwiftUIX
+ SwiftUIX
 
-[![CI/CD](https://github.com/SwiftUIX/SwiftUIX/actions/workflows/build.yml/badge.svg?branch=master)](https://github.com/SwiftUIX/SwiftUIX/actions/workflows/build.yml)
+SwiftUIX aims to fill gaps in SwiftUI by providing an extensive suite of components, extensions, and utilities that complement Apple’s standard library. The project provides a broad collection of SwiftUI-compatible ports and utilities for UIKit and AppKit functionality.
 
-SwiftUIX attempts to fill the gaps of SwiftUI, providing an extensive suite of components, extensions and utilities to complement the standard library. This project is **by far** the most complete port of missing UIKit/AppKit functionality, striving to deliver it in the most Apple-like fashion possible.
+* Why
+* Requirements
+* Installation
+* Documentation
+* Contents
+* Contributing
+* License
+* Support
+* Credits
 
-- [Why](#why)
-- [Requirements](#requirements)
-- [Installation](#installation)
-- [Contents](#contents)
-- [Contributing](#contributing)
-- [License](#license)
-- [Support](#support)
-- [Credits](#credits)
+Why
 
+The goal of SwiftUIX is to complement SwiftUI by providing additional views, components, extensions, and utilities that make it easier to build applications across Apple’s platforms.
 
-# Why
+Requirements
 
-The goal of this project is to **complement** the SwiftUI standard library, offering hundreds of extensions and views that empower you, the developer, to build applications with the ease promised by the revolution that is SwiftUI.
+[!NOTE]
+Swift 5.10 is the minimum Swift version required to build SwiftUIX. Swift 5.9 is no longer supported.
 
+* Deployment targets:
+    * iOS 13
+    * macOS 11
+    * Mac Catalyst 13
+    * tvOS 13
+    * watchOS 6
+    * visionOS 1
+* Minimum Xcode version: Xcode 15.4+
+* CI configuration includes Xcode 16.x and Xcode 26.x
+* CI configuration includes destinations for:
+    * iOS
+    * macOS
+    * Mac Catalyst
+    * tvOS
+    * watchOS
+    * visionOS
 
-# Requirements
+The presence of a CI configuration does not by itself establish that a workflow was executed or that a particular build succeeded. CI execution and results are established by the corresponding GitHub Actions run records.
 
-> [!Note]
-> Swift 5.10 is the minimum Swift version required to build SwiftUIX, Swift 5.9 is no longer supported.
+Installation
 
-- Deployment targets: iOS 13, macOS 11, Mac Catalyst 13, tvOS 13, watchOS 6 and visionOS 1
-- Minimum Xcode version: Xcode 15.4+
-- CI-verified Xcode versions: Xcode 16.x and Xcode 26.x
-- CI-verified destinations: iOS, macOS, Mac Catalyst, tvOS, watchOS and visionOS
+The preferred installation method is Swift Package Manager.
 
-
-# Installation
-
-The preferred way of installing SwiftUIX is via the [Swift Package Manager](https://swift.org/package-manager/).
-
-```swift
-/// Package.swift
-/// ...
+// Package.swift
 dependencies: [
-    .package(url: "https://github.com/SwiftUIX/SwiftUIX.git", branch: "master"),
+    .package(
+        url: "https://github.com/SwiftUIX/SwiftUIX.git",
+        branch: "master"
+    ),
 ]
-/// ...
-```
 
-> Xcode 15 integrates with libSwiftPM to provide support for iOS, watchOS, macOS and tvOS platforms.
+Xcode provides integrated Swift Package Manager support for Apple platforms.
 
-1. In Xcode, open your project and navigate to **File** → **Swift Packages** → **Add Package Dependency...**
-2. Paste the repository URL (`https://github.com/SwiftUIX/SwiftUIX`) and click **Next**.
-3. For **Rules**, select **Branch** (with branch set to `master`).
-4. Click **Finish**.
-5. Open the Project settings, add **SwiftUIX.framework** to the **Linked Frameworks and Libraries**, set **Status** to **Optional**.
+Add SwiftUIX through Xcode
 
+1. Open your project in Xcode.
+2. Select File → Add Package Dependencies…
+3. Enter:
+    https://github.com/SwiftUIX/SwiftUIX
+4. Select the desired package version or branch.
+5. Add the SwiftUIX product to your target.
 
-# Documentation
+Documentation
 
-The SwiftUIX documentation can be found at:
+SwiftUIX documentation is available at:
 
 https://swiftuix.github.io/SwiftUIX/documentation/swiftuix/
 
-All documentation that hasn't been migrated here is available via the [repository wiki](https://github.com/SwiftUIX/SwiftUIX/wiki).
+Documentation that has not yet been migrated to DocC may be available through the repository wiki.
 
+The existence of documentation source files or a documentation URL does not by itself establish a particular documentation deployment workflow or deployment execution.
 
-# Contents
+Contents
 
-While the project itself is stable and heavily being used in production, its documentation is **work-in-progress**. Contributions are encouraged and welcomed.
+SwiftUIX provides a collection of components, extensions, and utilities intended to complement SwiftUI.
 
-### UIKit → SwiftUI
+UIKit → SwiftUI
 
-| UIKit                                   | SwiftUI      | SwiftUIX                                   |
-| --------------------------------------- | ------------ | ------------------------------------------ |
-| `LPLinkView`                            | -            | `LinkPresentationView`                     |
-| `UIActivityIndicatorView`               | -            | `ActivityIndicator`                        |
-| `UIActivityViewController`              | -            | `AppActivityView`                          |
-| `UIBlurEffect`                          | -            | `BlurEffectView`                           |
-| `UICollectionView`                      | -            | `CollectionView`                           |
-| `UIDeviceOrientation`                   | -            | `DeviceLayoutOrientation`                  |
-| `UIImagePickerController`               | -            | `ImagePicker`                              |
-| `UIPageViewController`                  | -            | `PaginationView`                           |
-| `UIScreen`                              | -            | `Screen`                                   |
-| `UISearchBar`                           | -            | `SearchBar`                                |
-| `UIScrollView`                          | `ScrollView` | `CocoaScrollView`                          |
-| `UISwipeGestureRecognizer`              | -            | `SwipeGestureOverlay`                      |
-| `UITableView`                           | `List`       | `CocoaList`                                |
-| `UITextField`                           | `TextField`  | `CocoaTextField`                           |
-| `UIModalPresentationStyle`              | -            | `ModalPresentationStyle`                   |
-| `UIViewControllerTransitioningDelegate` | -            | `UIHostingControllerTransitioningDelegate` |
-| `UIVisualEffectView`                    | -            | `VisualEffectView`                         |
-| `UIWindow`                              | -            | `WindowOverlay`                            |
+UIKit	SwiftUI	SwiftUIX
+LPLinkView	-	LinkPresentationView
+UIActivityIndicatorView	-	ActivityIndicator
+UIActivityViewController	-	AppActivityView
+UIBlurEffect	-	BlurEffectView
+UICollectionView	-	CollectionView
+UIDeviceOrientation	-	DeviceLayoutOrientation
+UIImagePickerController	-	ImagePicker
+UIPageViewController	-	PaginationView
+UIScreen	-	Screen
+UISearchBar	-	SearchBar
+UIScrollView	ScrollView	CocoaScrollView
+UISwipeGestureRecognizer	-	SwipeGestureOverlay
+UITableView	List	CocoaList
+UITextField	TextField	CocoaTextField
+UIModalPresentationStyle	-	ModalPresentationStyle
+UIViewControllerTransitioningDelegate	-	UIHostingControllerTransitioningDelegate
+UIVisualEffectView	-	VisualEffectView
+UIWindow	-	WindowOverlay
 
-### **Activity**
+Activity
 
-- `ActivityIndicator`
+ActivityIndicator
 
-  ```
-  ActivityIndicator()
-      .animated(true)
-      .style(.large)
-  ```
+ActivityIndicator()
+    .animated(true)
+    .style(.large)
 
-- `AppActivityView` - a SwiftUI port for `UIActivityViewController`.
+AppActivityView
 
-  ```swift
-  AppActivityView(activityItems: [...])
-      .excludeActivityTypes([...])
-      .onCancel { }
-      .onComplete { result in
-          foo(result)
-      }
-  ```
+A SwiftUI interface for UIActivityViewController.
 
-### Appearance
+AppActivityView(activityItems: [...])
+    .excludeActivityTypes([...])
+    .onCancel { }
+    .onComplete { result in
+        foo(result)
+    }
 
-- `View/visible(_:)` - Sets a view's visibility.
+Appearance
 
-### CollectionView
+* View/visible(_:) - Controls a view’s visibility.
 
-Use `CollectionView` within your SwiftUI view, providing it with a data source and a way to build cells.
+CollectionView
 
-```swift
+Use CollectionView within a SwiftUI view by providing a data source and a cell-building closure.
+
 import SwiftUIX
-
 struct MyCollectionView: View {
-    let data: [MyModel] // Your data source
-
+    let data: [MyModel]
     var body: some View {
         CollectionView(data, id: \.self) { item in
-            // Build your cell view
             Text(item.title)
         }
     }
 }
-```
 
-### Error Handling
+Error Handling
 
-- `TryButton` - A button capable of performing throwing functions.
+* TryButton - A button capable of performing throwing functions.
 
-### Geometry
+Geometry
 
-- `flip3D(_:axis:reverse:)` - Flips this view.
-- `RectangleCorner` - A corner of a Rectangle.
-- `ZeroSizeView` - A zero-size view for when `EmptyView` just doesn't work.
+* flip3D(_:axis:reverse:) - Flips a view in three-dimensional space.
+* RectangleCorner - Represents a corner of a rectangle.
+* ZeroSizeView - Provides a zero-sized view where EmptyView is insufficient.
 
-### Keyboard
+Keyboard
 
-- `Keyboard` - An object representing the keyboard.
-- `View/padding(.keyboard) `- Pads this view with the active system height of the keyboard.
+* Keyboard - Represents keyboard-related state.
+* View/padding(.keyboard) - Adds padding corresponding to the active keyboard height.
 
-### Link Presentation:
+Link Presentation
 
-Use `LinkPresentationView` to display a link preview for a given URL.
+Use LinkPresentationView to display a link preview for a URL.
 
-```swift
 LinkPresentationView(url: url)
     .frame(height: 192)
-```
 
-### Navigation Bar
+Navigation Bar
 
-- `View/navigationBarColor(_:)` - Configures the color of the navigation bar for this view.
-- `View/navigationBarTranslucent(_:)` - Configures the translucency of the navigation bar for this view.
-- `View/navigationBarTransparent(_:)` - Configures the transparency of the navigation bar for this view.
-- `View/navigationBarLargeTitle(_:)` - Set a custom view for the navigation bar's large view mode.
+* View/navigationBarColor(_:) - Configures the navigation bar color.
+* View/navigationBarTranslucent(_:) - Configures navigation bar translucency.
+* View/navigationBarTransparent(_:) - Configures navigation bar transparency.
+* View/navigationBarLargeTitle(_:) - Configures a custom view for the navigation bar’s large-title mode.
 
-### Pagination
+Pagination
 
-- `PaginationView`
+PaginationView
 
-  ```swift
-  PaginationView(axis: .horizontal) {
-      ForEach(0..<10, id: \.hashValue) { index in
-          Text(String(index))
-      }
-  }
-  .currentPageIndex($...)
-  .pageIndicatorAlignment(...)
-  .pageIndicatorTintColor(...)
-  .currentPageIndicatorTintColor(...)
-  ```
+PaginationView(axis: .horizontal) {
+    ForEach(0..<10, id: \.hashValue) { index in
+        Text(String(index))
+    }
+}
+.currentPageIndex($...)
+.pageIndicatorAlignment(...)
+.pageIndicatorTintColor(...)
+.currentPageIndicatorTintColor(...)
 
-### Scrolling
+Scrolling
 
-- `View/isScrollEnabled(_:)` - Adds a condition that controls whether users can scroll within this view. Works with:
+View/isScrollEnabled(_:) controls whether supported SwiftUIX scrolling views can be scrolled.
 
-  - `CocoaList`
-  - `CocoaScrollView`
-  - `CollectionView`
-  - `TextView`
+Supported SwiftUIX views include:
 
-  Does not work with SwiftUI's `ScrollView`.
+* CocoaList
+* CocoaScrollView
+* CollectionView
+* TextView
 
-### Search
+This modifier does not apply to SwiftUI’s native ScrollView.
 
-- `SearchBar` - A SwiftUI port for `UISearchBar`.
+Search
 
-  ```swift
-  struct ContentView: View {
-      @State var isEditing: Bool = false
-      @State var searchText: String = ""
+SearchBar
 
-      var body: some View {
-          SearchBar("Search...", text: $searchText, isEditing: $isEditing)
-              .showsCancelButton(isEditing)
-              .onCancel { print("Canceled!") }
-      }
-  }
-  ```
+A SwiftUI interface for UISearchBar.
 
-- `View/navigationSearchBar(_:)` - Sets the navigation search bar for this view.
+struct ContentView: View {
+    @State private var isEditing = false
+    @State private var searchText = ""
+    var body: some View {
+        SearchBar(
+            "Search...",
+            text: $searchText,
+            isEditing: $isEditing
+        )
+        .showsCancelButton(isEditing)
+        .onCancel {
+            print("Canceled!")
+        }
+    }
+}
 
-  ```swift
-  Text("Hello, world!")
-      .navigationSearchBar {
-          SearchBar("Placeholder", text: $text)
-      }
-  ```
+View/navigationSearchBar(_:)
 
-- `View/navigationSearchBarHiddenWhenScrolling(_:)` - Hides the integrated search bar when scrolling any underlying content.
+Adds a search bar to the navigation interface.
 
-### Screen
+Text("Hello, world!")
+    .navigationSearchBar {
+        SearchBar("Placeholder", text: $text)
+    }
 
-- `Screen` - A representation of the device's screen.
-- `UserInterfaceIdiom` - A SwiftUI port for `UIUserInterfaceIdiom`.
-- `UserInterfaceOrientation` - A SwiftUI port for `UserInterfaceOrientation`.
+View/navigationSearchBarHiddenWhenScrolling(_:)
 
-### Scroll
+Controls whether the integrated search bar is hidden while scrolling underlying content.
 
-- `ScrollIndicatorStyle` - A type that specifies the appearance and interaction of all scroll indicators within a view hierarchy
-  - `HiddenScrollViewIndicatorStyle` - A scroll indicator style that hides all scroll view indicators within a view hierarchy.
+Screen
 
-### Status Bar
+* Screen - Represents the device screen.
+* UserInterfaceIdiom - A SwiftUI-compatible representation of UIUserInterfaceIdiom.
+* UserInterfaceOrientation - A SwiftUI-compatible representation of UIInterfaceOrientation.
 
-- `View/statusItem(id:image:`) - Adds a status bar item configured to present a popover when clicked
+Scroll
 
-  ```swift
-  Text("Hello, world!")
-      .statusItem(id: "foo", image: .system(.exclamationmark)) {
-          Text("Popover!")
-              .padding()
-      }
-  ```
+* ScrollIndicatorStyle - Describes the appearance and interaction of scroll indicators within a view hierarchy.
+* HiddenScrollViewIndicatorStyle - A scroll indicator style that hides scroll indicators within a view hierarchy.
 
-### Text
+Status Bar
 
-- `TextView`
+View/statusItem(id:image:)
 
-  ```swift
-  TextView("placeholder text", text: $text, onEditingChanged: { editing in
-      print(editing)
-  })
-  ```
+Adds a status bar item that presents a popover when selected.
 
-### Visual Effects
+Text("Hello, world!")
+    .statusItem(id: "foo", image: .system(.exclamationmark)) {
+        Text("Popover!")
+            .padding()
+    }
 
-- `VisualEffectBlurView` - A blur effect view that expands to fill.
+Text
 
-  ```swift
-  VisualEffectBlurView(blurStyle: .dark)
-      .edgesIgnoringSafeArea(.all)
-  ```
+TextView
 
-### Window
+TextView(
+    "placeholder text",
+    text: $text,
+    onEditingChanged: { editing in
+        print(editing)
+    }
+)
 
-- `View/windowOverlay(isKeyAndVisible:content:)` - Makes a window key and visible when a given condition is true.
+Visual Effects
 
-### Edit Menu
+VisualEffectBlurView
 
-- `View/editMenu(isVisible:content:)` - Adds an edit menu to the view.
+VisualEffectBlurView(blurStyle: .dark)
+    .edgesIgnoringSafeArea(.all)
 
-  ```swift
-  Text("Hello, world!")
-      .editMenu(isVisible: $isEditMenuVisible) {
-          EditMenuItem("Copy") {
-              // Perform copy action
-          }
-          EditMenuItem("Paste") {
-              // Perform paste action
-          }
-      }
-  ```
+Window
 
+View/windowOverlay(isKeyAndVisible:content:)
 
-# Contributing
+Makes a window key and visible while the supplied condition is true.
 
-SwiftUIX welcomes contributions in the form of GitHub issues and pull-requests. Please refer the [projects](https://github.com/SwiftUIX/SwiftUIX/projects) section before raising a bug or feature request, as it may already be under progress.
+Edit Menu
 
-SwiftUIX is a Swift package. To work on it in Xcode, open `Package.swift` from the cloned repository.
-To verify a local macOS build, run `xcodebuild -scheme SwiftUIX -destination 'generic/platform=macOS' build`.
+View/editMenu(isVisible:content:)
 
+Adds an edit menu to a view.
 
-# License
+Text("Hello, world!")
+    .editMenu(isVisible: $isEditMenuVisible) {
+        EditMenuItem("Copy") {
+            // Perform copy action
+        }
+        EditMenuItem("Paste") {
+            // Perform paste action
+        }
+    }
 
-SwiftUIX is licensed under the [MIT License](https://vmanot.mit-license.org).
+Contributing
 
+SwiftUIX welcomes contributions through GitHub issues and pull requests.
 
-# Support
+Before opening an issue or requesting a feature, check the projects section for related work.
 
-SwiftUIX is and will always remain free and open-source.
+SwiftUIX is a Swift package. To work on the project in Xcode, open Package.swift from the cloned repository.
 
-Maintaining SwiftUIX is a massively time-consuming endeavour. If you're reliant on SwiftUIX for your app/project and would like to see it grow, consider either:
+To perform a local macOS build, run:
 
-- [Contributing](#contributing)
-- [Donating via Patreon](http://patreon.com/vmanot)
+xcodebuild \
+    -scheme SwiftUIX \
+    -destination 'generic/platform=macOS' \
+    build
 
+A local build command documents a verification procedure. Successful execution must be established by the corresponding build output.
 
-# Credits
+License
 
-SwiftUIX is led and maintained by [@vatsal_manot](http://twitter.com/vatsal_manot).
+SwiftUIX is licensed under the MIT License.
 
-Special thanks to [Brett Best](https://github.com/Brett-Best), [Nathan Tanner](https://github.com/nathantannar4), [Kabir Oberai](https://github.com/kabiroberai) and many more.
+Support
 
+SwiftUIX is free and open source.
 
-[Documentation]: https://swiftuix.github.io/SwiftUIX
+Maintaining SwiftUIX requires substantial ongoing effort. If SwiftUIX is useful to your application or project, you can support the project by:
+
+* Contributing
+* Donating via Patreon
+
+Credits
+
+SwiftUIX is led and maintained by @vatsal_manot.
+
+Special thanks to Brett Best, Nathan Tanner, Kabir Oberai, and the many other contributors to the project.
